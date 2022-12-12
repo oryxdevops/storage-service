@@ -19,7 +19,7 @@ spec:
           ports:
             - containerPort: 3000
           volumeMounts:
-            - name: my-azurefile-volume
+            - name: ouc-sis-volume
               mountPath: '/usr/src/app/uploads'
       volumes:
         - name: ouc-sis-volume
