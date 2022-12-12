@@ -30,12 +30,6 @@ export class FileUploadsController {
     }),
   )
   handleFileUpload(@UploadedFile() file: Express.Multer.File) {
-    console.log('File : ', file);
     return { file: file };
-  }
-
-  @Get('files/:filename')
-  getFile(@Param('filename') filename, @Res() res) {
-    return of(res.sendFile(join(process.cwd(), 'files/' + filename)));
   }
 }
