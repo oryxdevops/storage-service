@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storage-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storage-service
+  template:
+    metadata:
+      name: storage-service
+      labels:
+        app: storage-service
+    spec:
+      containers:
+        - name: storage-service-container
+          image: iyngaran55/storage
+          ports:
+            - containerPort: 3000

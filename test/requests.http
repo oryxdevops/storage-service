@@ -1,0 +1,9 @@
+POST http://localhost:3000/file-uploads HTTP/1.1
+Content-Type: multipart/form-data; boundary=MfnBoundry
+
+--MfnBoundry
+Content-Disposition: form-data; name="file"; filename="./uploads/test.jpeg"
+Content-Type: image/jpeg
+
+< ./uploads/test.jpeg
+--MfnBoundry--

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ouc-sis-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ouc-sis-sc
+  resources:
+    requests:
+      storage: 10Gi
