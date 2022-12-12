@@ -20,7 +20,7 @@ spec:
             - containerPort: 3000
           volumeMounts:
             - name: ouc-sis-volume
-              mountPath: '/usr/src/app/uploads'
+              mountPath: '/usr/src/app/files'
       volumes:
         - name: ouc-sis-volume
           persistentVolumeClaim:

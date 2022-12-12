@@ -1,12 +1,16 @@
 import {
   Controller,
+  Get,
+  Param,
   Post,
+  Res,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
-import { extname } from 'path';
+import { extname, join } from 'path';
+import { of } from 'rxjs';
 
 @Controller('file-uploads')
 export class FileUploadsController {
@@ -27,6 +31,11 @@ export class FileUploadsController {
   )
   handleFileUpload(@UploadedFile() file: Express.Multer.File) {
     console.log('File : ', file);
-    return 'file upload';
+    return { file: file };
+  }
+
+  @Get('files/:filename')
+  getFile(@Param('filename') filename, @Res() res) {
+    return of(res.sendFile(join(process.cwd(), 'files/' + filename)));
   }
 }
