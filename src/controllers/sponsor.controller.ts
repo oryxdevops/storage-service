@@ -12,22 +12,18 @@ import { diskStorage } from 'multer';
 import { extname, join } from 'path';
 import { of } from 'rxjs';
 
-@Controller('national-service-certificate')
-export class NationalServiceController {
+@Controller('sponsors')
+export class SponsorController {
   @Get('/:filename')
   getFile(@Param('filename') filename, @Res() res) {
-    return of(
-      res.sendFile(
-        join(process.cwd(), 'files/national-service-certificates/' + filename),
-      ),
-    );
+    return of(res.sendFile(join(process.cwd(), 'files/sponsor/' + filename)));
   }
 
   @Post()
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
-        destination: './files/national-service-certificates',
+        destination: './files/sponsor',
         filename: (req, file, callback) => {
           const uniqueSuffix =
             Date.now() + '-' + Math.round(Math.random() * 1e9);

@@ -11,10 +11,11 @@ import { AcademicQualificationController } from './controllers/academic-qualific
 import { EnglishSkillController } from './controllers/english-skill.controller';
 import { CvController } from './controllers/cv.controller';
 import { NationalServiceController } from './controllers/national-service.controller';
+import { SponsorController } from './controllers/sponsor.controller';
 
 @Module({
   imports: [MulterModule.register({ dest: './uploads' })],
-  controllers: [AppController, FileUploadsController, FileController, QidController, PassportController, PhotoController, AcademicQualificationController, EnglishSkillController, CvController, NationalServiceController],
+  controllers: [AppController, FileUploadsController, FileController, QidController, PassportController, PhotoController, AcademicQualificationController, EnglishSkillController, CvController, NationalServiceController, SponsorController],
   providers: [AppService],
 })
 export class AppModule {}
